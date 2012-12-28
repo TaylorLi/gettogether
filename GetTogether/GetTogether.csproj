@@ -1,0 +1,108 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1CCF377-A96F-4540-B0DB-4BCD30673AD6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GetTogether</RootNamespace>
+    <AssemblyName>GetTogether</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CommonDLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CSV\CSVAttribute.cs" />
+    <Compile Include="CSV\ObjectLoader.cs" />
+    <Compile Include="Definition.cs" />
+    <Compile Include="Entities\DateTimePar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\Attributes.cs" />
+    <Compile Include="Mapping\Config.cs" />
+    <Compile Include="Mapping\MappingInfoCache.cs" />
+    <Compile Include="Mapping\ObjectHelper.cs" />
+    <Compile Include="Mapping\PropertyMappingInfo.cs" />
+    <Compile Include="ObjectBase\ConfigBase.cs" />
+    <Compile Include="ObjectBase\ListBase.cs" />
+    <Compile Include="ObjectBase\ResourceBase.cs" />
+    <Compile Include="ObjectBase\SerializationBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\Date.Designer.cs">
+      <DependentUpon>Date.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Utility\ConfigManager.cs" />
+    <Compile Include="Utility\ConfigHelper.cs" />
+    <Compile Include="Utility\DateHelper.cs" />
+    <Compile Include="Utility\DebugHelper.cs" />
+    <Compile Include="Utility\DirectoryHelper.cs" />
+    <Compile Include="Utility\Dynamic\DynamicComparer.cs" />
+    <Compile Include="Utility\Dynamic\SortProperty.cs" />
+    <Compile Include="Utility\EmailHelper.cs" />
+    <Compile Include="Utility\Enums.cs" />
+    <Compile Include="Utility\ExcelHelper.cs" />
+    <Compile Include="Utility\FileHelper.cs" />
+    <Compile Include="Utility\IP_AddressHelper.cs" />
+    <Compile Include="Utility\LanguageHelper.cs" />
+    <Compile Include="Utility\ListHelper.cs" />
+    <Compile Include="Utility\LogHelper.cs" />
+    <Compile Include="Utility\MutiLanguage.cs" />
+    <Compile Include="Utility\NumberHelper.cs" />
+    <Compile Include="Utility\PdfHelper.cs" />
+    <Compile Include="Utility\PredicateHelper.cs" />
+    <Compile Include="Utility\RequestHelper.cs" />
+    <Compile Include="Utility\SecretHelper.cs" />
+    <Compile Include="Utility\SerializationHelper.cs" />
+    <Compile Include="Utility\StringHelper.cs" />
+    <Compile Include="Utility\Xml\XmlHelper.cs" />
+    <Compile Include="Utility\Xml\XPathOperator.cs" />
+    <Compile Include="Utility\Xml\XsltHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\Date.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Date.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Date.zh-cn.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Date.zh-tw.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
