@@ -1,0 +1,94 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A71FF93-C45F-42D0-BDEB-B289D447D9E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GetTogether.Data</RootNamespace>
+    <AssemblyName>GetTogether.Data</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CommonDLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GetTogether, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CommonDLL\GetTogether.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CommonDLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.2.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CommonDLL\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\CommonBase.cs" />
+    <Compile Include="Data\Config.cs" />
+    <Compile Include="Data\ConnectionHelper.cs" />
+    <Compile Include="Data\ConnectionInformation.cs" />
+    <Compile Include="Data\DateTimeValues.cs" />
+    <Compile Include="Data\DbUtil.cs" />
+    <Compile Include="Data\DOBase.cs" />
+    <Compile Include="Data\Enums.cs" />
+    <Compile Include="Data\Interface\ICommonBase.cs" />
+    <Compile Include="Data\Interface\IDOBase.cs" />
+    <Compile Include="Data\Interface\IPagingResult.cs" />
+    <Compile Include="Data\Interface\IStoreProcBase.cs" />
+    <Compile Include="Data\Interface\IUOBase.cs" />
+    <Compile Include="Data\Log.cs" />
+    <Compile Include="Data\MySQL\Log.cs" />
+    <Compile Include="Data\MySQL\SqlScriptHandler.cs" />
+    <Compile Include="Data\MySQL\SqlUtil.cs" />
+    <Compile Include="Data\PagingResult.cs" />
+    <Compile Include="Data\Parameter.cs" />
+    <Compile Include="Data\ParameterCollection.cs" />
+    <Compile Include="Data\SQL\Delete.cs" />
+    <Compile Include="Data\SQL\Insert.cs" />
+    <Compile Include="Data\SQL\Log.cs" />
+    <Compile Include="Data\SQL\Select.cs" />
+    <Compile Include="Data\SQL\SqlScriptHandler.cs" />
+    <Compile Include="Data\SQL\SqlUtil.cs" />
+    <Compile Include="Data\SQL\Update.cs" />
+    <Compile Include="Data\Stater.cs" />
+    <Compile Include="Data\StoreProcBase.cs" />
+    <Compile Include="Data\StoreProcInformation.cs" />
+    <Compile Include="Data\UOBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\MySQL\sp_Paging.sql" />
+    <None Include="Data\SQL\sp_Paging.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
