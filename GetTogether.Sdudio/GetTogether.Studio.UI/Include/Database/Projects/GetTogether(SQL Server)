@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ProjectParameter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectName>GetTogether(SQL Server)</ProjectName>
+  <ConnectionKey>Config.ConnectionKeys.DatabaseKey</ConnectionKey>
+  <DataObjectNameSpace>GetTogether.Database.DAL</DataObjectNameSpace>
+  <BusinessObjectNameSpace>GetTogether.Database.BLL</BusinessObjectNameSpace>
+  <ConnectionString>Data Source=127.0.0.1,25;Initial Catalog=Adholidays;Persist Security Info=True;User ID=sa;Password=gzuat...;</ConnectionString>
+  <UnInsertAndUnUpdate>CreateOn</UnInsertAndUnUpdate>
+  <UnInsert>UpdateOn,UpdateBy</UnInsert>
+  <UnUpdate>CreateBy</UnUpdate>
+  <DatabaseTypeVariables>Config.ConnectionKeys.DatabaseType</DatabaseTypeVariables>
+  <DOPrefix>DO_</DOPrefix>
+  <UOPrefix>UO_</UOPrefix>
+  <UOListPrefix>UOList_</UOListPrefix>
+  <BOPrefix>BO_</BOPrefix>
+  <DatabaseTypeForCodeEngineer>SQLServer</DatabaseTypeForCodeEngineer>
+</ProjectParameter>
