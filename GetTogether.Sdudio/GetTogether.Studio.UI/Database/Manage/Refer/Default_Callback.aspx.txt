@@ -1,0 +1,5 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="{TableName}_Callback.aspx.cs"
+    Inherits="Database_Output_{TableName}_Callback" ValidateRequest="false" %>
+
+<%@ Register Src="{TableName}_Result.ascx" TagName="{TableName}_Result" TagPrefix="{TableName}_Result1" %>
+
