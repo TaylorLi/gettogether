@@ -1,0 +1,109 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7511EFF2-6F8E-46AA-9ACC-24DE8CD641E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GetTogether.Web</RootNamespace>
+    <AssemblyName>GetTogether.Web</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CommonDLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GetTogether, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CommonDLL\GetTogether.dll</HintPath>
+    </Reference>
+    <Reference Include="GetTogether.Resource, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\PageAdmin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="UI\PageCacheManager.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientInformation.cs" />
+    <Compile Include="UI\PageConfigManager.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlHelper.cs" />
+    <Compile Include="CultureHelper.cs" />
+    <Compile Include="DataGridHelper.cs" />
+    <Compile Include="Entities\Caches.cs" />
+    <Compile Include="Entities\LibraryInfos.cs" />
+    <Compile Include="Entities\UploadFiles.cs" />
+    <Compile Include="Extension\HttpLogs.cs" />
+    <Compile Include="Extension\SoapLogs.cs" />
+    <Compile Include="GridViewHelper.cs" />
+    <Compile Include="HtmlGenerator.cs" />
+    <Compile Include="HtmlHelper.cs" />
+    <Compile Include="JavaScriptHelper.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="OnlineUserManager.cs" />
+    <Compile Include="UI\MasterPageOnlineUser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\PageOnlineUser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paging.cs" />
+    <Compile Include="RdlcDownloadHelper.cs" />
+    <Compile Include="RequestHandler.cs" />
+    <Compile Include="SimultaneousLogin.cs" />
+    <Compile Include="TableHelper.cs" />
+    <Compile Include="UI\PageCallback.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Control.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HttpApplication.cs" />
+    <Compile Include="UI\MasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ControlPaging.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebHelper.cs" />
+    <Compile Include="WebServiceHelper.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

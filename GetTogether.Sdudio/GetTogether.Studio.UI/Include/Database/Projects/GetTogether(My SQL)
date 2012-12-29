@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ProjectParameter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectName>GetTogether(My SQL)</ProjectName>
+  <ConnectionKey>Config.ConnectionKeys.Adholidays</ConnectionKey>
+  <DataObjectNameSpace>GetTogether.Test.DB.Adholidays.DAL</DataObjectNameSpace>
+  <BusinessObjectNameSpace>GetTogether.Test.DB.Adholidays.BLL</BusinessObjectNameSpace>
+  <ConnectionString>Database=Adholidays;Data Source=127.0.0.1;Port=3306;User Id=root;Password=;character set=utf8</ConnectionString>
+  <UnInsertAndUnUpdate>CreateOn</UnInsertAndUnUpdate>
+  <UnInsert>UpdateOn,UpdateBy</UnInsert>
+  <UnUpdate>CreateBy</UnUpdate>
+  <DatabaseTypeVariables>Config.DatabaseType</DatabaseTypeVariables>
+  <DOPrefix>DO_</DOPrefix>
+  <UOPrefix>UO_</UOPrefix>
+  <UOListPrefix>UOList_</UOListPrefix>
+  <BOPrefix>BO_</BOPrefix>
+  <DatabaseTypeForCodeEngineer>MySQL</DatabaseTypeForCodeEngineer>
+</ProjectParameter>

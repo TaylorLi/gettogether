@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GenerateManage.aspx.cs" Inherits="Database_Callback_GenerateManage" %>
