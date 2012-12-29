@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using GetTogether.Data;
+using GetTogether.Mapping;
+using System.Data;
+
+public partial class Database_Output_{TableName}_Edit : GetTogether.Web.UI.Page
+{
+    public DO_{TableName}.UO_{TableName} UO;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+		string primaryKeyInfo = Request["id"];
+        if (!string.IsNullOrEmpty(primaryKeyInfo))
+        {
+            UO = BO_{TableName}.GetObjectByPrimaryKeyString(primaryKeyInfo);
+        }
+        if (UO == null) UO = new DO_{TableName}.UO_{TableName}();
+
+        if (Request.Form.Keys.Count > 0)
+        {
+            GetTogether.Web.WebHelper.SetValues<DO_{TableName}.UO_{TableName}>(UO, "{TableName}_");
+            if (!string.IsNullOrEmpty(primaryKeyInfo))
+            {
+				//Pending
+				UO["UpdateOn","yyyy-MM-dd"]=DateTime.Now.ToString("yyyy-MM-dd");
+				UO["UpdateBy"] = string.Concat("WS-",Request.UserHostAddress);
+                UO.Update(BO_{TableName}.GetConditionsByPrimaryKeyString(primaryKeyInfo));
+            }
+            else
+            {
+				//Pending
+				UO["CreateOn","yyyy-MM-dd"]=DateTime.Now.ToString("yyyy-MM-dd");
+				UO["CreateBy"]=string.Concat("WS-",Request.UserHostAddress);
+                UO.Insert();
+            }
+            Response.Redirect("{TableName}.aspx");
+        }
+    }
+{DataObject}
+
+{BusinessObject}
+}

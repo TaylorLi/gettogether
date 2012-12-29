@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using GetTogether.Data;
+using GetTogether.Mapping;
+using System.Data;
+
+public partial class Database_Output_{TableName}_Callback : GetTogether.Web.UI.PageCallback
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        switch (type)
+        {
+            case 1:
+                GetList();
+                break;
+			case 4:
+				Delete();
+				break;
+            default:
+                break;
+        }
+    }
+
+    private void GetList()
+    {
+        Database_Output_{TableName}_Result c = (Database_Output_{TableName}_Result)Page.LoadControl("{TableName}_Result.ascx");
+        DO_{TableName}.UO_{TableName} l = new DO_{TableName}.UO_{TableName}();
+        GetTogether.Web.WebHelper.SetValues<DO_{TableName}.UO_{TableName}>(l, "{TableName}_");
+        if (string.IsNullOrEmpty(Sort)) Sort = DO_{TableName}.Columns.{SortColumn}.ToString();
+        PagingResult<DO_{TableName}.UO_{TableName}, DO_{TableName}.UOList_{TableName}> resultPaging = BO_{TableName}.GetPagingList(l, PageIndex, PageSize, Sort, IsAsc);
+        c.JsFunction = "{TableName}_Search";
+        c.SetData<DO_{TableName}.UO_{TableName}, DO_{TableName}.UOList_{TableName}>(resultPaging.Result);
+        c.Total = resultPaging.Total;
+        c.Sort = Sort;
+        c.PageIndex = PageIndex;
+        c.PageSize = PageSize;
+        c.IsAsc = IsAsc;
+        this.Controls.Add(c);
+    }
+
+    private void Delete()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(Request["keys"]))
+            {
+                JsonSuccess();
+            }
+            int[] ids = GetParameterArrayInt(Request["keys"], "{TableName}_", ',');
+            ParameterCollection conditions = new ParameterCollection();
+            conditions.AddCondition(ParameterType.Initial, TokenTypes.In, DO_{TableName}.Columns.{AutoIncrement}, ids);
+ 
+            if (new DO_{TableName}().Delete(conditions) > 0)
+                JsonSuccess();
+            else
+                JsonError("Delete Failure");
+        }
+        catch (Exception ex)
+        {
+            JsonError(ex.Message);
+        }
+    }
+
+{DataObject}
+
+{BusinessObject}
+}
